@@ -1,0 +1,4 @@
+웹 브라우저 주소줄에 주소입력 후 엔터 - get 
+버튼  - form - get
+	 - form - post
+link - get
