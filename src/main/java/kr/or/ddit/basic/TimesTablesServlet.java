@@ -22,10 +22,10 @@ public class TimesTablesServlet extends HttpServlet {
 		writer.println("	<body>");
 		writer.println("	<table border='1'>");
 		
-		for(int i=2;i<10;i++) {
+		for(int i=2; i<10; i++) {
 			writer.println("	<tr>");
 		
-		for(int x=1; x<10;x++ ) {
+		for(int x=1; x<10; x++ ) {
 			writer.println("	<td>"+x+"*"+i+"="+x*i+"</td>");			
 		}
 		writer.println("	</tr>");
