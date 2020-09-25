@@ -11,13 +11,13 @@ $(function(){
 	$('#select1').on('click', function(){
 		res = $(this).val();
 		console.log(res)
- 		$('#form1').attr(res)
+ 		$('#form1').attr('method', res))
 		})
 
 	$('#select2').on('click', function(){
 		res = $(this).val();
 		console.log(res)
- 		$('#form1').attr(res)
+ 		$('#form1').attr('method', res)
 		})
 
 
