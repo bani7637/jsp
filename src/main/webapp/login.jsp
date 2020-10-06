@@ -21,21 +21,30 @@
     <!-- Custom styles for this template -->
     <link href="<%= request.getContextPath() %>/css/signin.css" rel="stylesheet">
  	<script type="text/javascript">
-	
+		
+		function getCookieValue(cookieName){
+// 		alert(document.cookie)
+// 		console.log(cookieName)
+			var cookies = document.cookie.split("; ");
+			var k1;
+			for(i=0;i<cookies.length;i++){
+				var cookieval = cookies[i].split("=");
+				if(cookies[i] == cookieName)
+				k1=cookies[i]
+				console.log(cookieval[0])
+				console.log(cookieval[1])
+			}
+			return k1;
+		}
+		
+		
+		
  	</script>
  
   </head>
 
   <body>
-	<% 
-// 	String name ="";
-// 	String value ="";
-// 	Cookie[] cookies = request.getCookies();
-//     	for (int i =0; i<cookies.length;i++){
-//     		name = cookies[i].getName();
-//     		value = cookies[i].getValue();
-//     	} 
-	%>
+
 	
     <div class="container">
 
@@ -51,6 +60,8 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+        
       </form>
 
     </div> <!-- /container -->
