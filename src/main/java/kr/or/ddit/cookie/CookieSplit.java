@@ -14,7 +14,7 @@ public class CookieSplit {
 		CookieSplit cookieSplit = new CookieSplit();
 		logger.debug(cookieSplit.getCookieValue("USERNM")); // 기대되는 값 brown
 		logger.debug(cookieSplit.getCookieValue("REMEMBERME")); // 기대되는값 Y
-		logger.debug(cookieSplit.getCookieValue("TEST")); // 기대되는값 ""(WHITE SPACE)
+		logger.debug(cookieSplit.getCookieValue("xxx")); // 기대되는값 ""(WHITE SPACE)
 	}
 
 	// cookieString 필드를 분석하여 메소드 인자로 넘어온 cookieName에 해당하는 쿠키가 있을경우
