@@ -93,29 +93,19 @@
 
 <body>
 
-
 	<div class="container">
-
 		<form class="form-signin" action="<%= request.getContextPath() %>/login" method="post">
 			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="inputEmail" class="sr-only">Email address</label> <input
-				type="email" id="inputEmail" name="userId" class="form-control"
-				placeholder="Email address" required autofocus> <label
-				for="inputPassword" class="sr-only" >Password</label> <input
-				type="password" id="inputPassword" class="form-control"
-				placeholder="Password" required name="password">
+			<label for="inputEmail" class="sr-only">Email address</label>
+			<input type="email" id="inputEmail" name="userId" value="brown" class="form-control" placeholder="Email address" required autofocus>
+			<label for="inputPassword" class="sr-only" >Password</label>
+			<input type="password" id="inputPassword" required value="passBrown" class="form-control" placeholder="Password" required name="password">
 			<div class="checkbox">
-				<label> <input type="checkbox" value="remember-me"
-					id="remember">Remember me
-				</label>
+				<label> <input type="checkbox" value="remember-me" id="remember">Remember me</label>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="button"
-				id="Signin">Sign in</button>
+			<button class="btn btn-lg btn-primary btn-block" type="button" id="Signin">Sign in</button>
 		</form>
-
-
 	</div>
-	<!-- /container -->
 
 </body>
 </html>
