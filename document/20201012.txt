@@ -1,0 +1,22 @@
+DBMS 입장에서 동일한 SQL이란?
+모든 문자가 동일한 SQL
+
+다음은 SQL DBMS 입장에서는 서로 다른 SQL로 인식된다.
+select * from mymember;
+select * from mymember;
+select * from mymember;
+
+
+MemberDao 새로인 기능 추가
+전체 사용자 조회
+1. 메소드, sql id 이름?? => selectAllMember, getAllMember, getMemberList..등등
+
+2. 해당 sql 실행할때 파라미터가 필요한지?? => X
+	select * from member 
+
+3. 해당 sql 실행했을때 반환되는 타입은 어떤건지?? MemberVO
+
+servlet, service, dao, model, view, xml, mybatis-config.xml, testcode(service, dao)
+신규로 만들것 
+화면출력 (jobid, jobtitle두개만)
+select * from jobs;

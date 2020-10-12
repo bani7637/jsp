@@ -6,4 +6,5 @@ public interface MemberServiceI {
 
 	MemberVO getMember(String userId);
 
+
 }

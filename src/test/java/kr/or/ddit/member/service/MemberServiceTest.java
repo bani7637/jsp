@@ -17,16 +17,16 @@ public class MemberServiceTest {
 		
 		
 		MemberVO answerMemberVO = new MemberVO();
-		answerMemberVO.setUserId("brown");
-		answerMemberVO.setPassword("passBrown");
+		answerMemberVO.setUserid("brown");
+		answerMemberVO.setPass("brownPass");
 		
 		
 		/***When***/
 		MemberVO memVo = memberService.getMember(userId);
 
 		/***Then***/
-		assertEquals("brown", memVo.getUserId());
-		assertEquals("passBrown", memVo.getPassword());
+		assertEquals("brown", memVo.getUserid());
+		assertEquals("brownPass", memVo.getPass());
 		
 		assertEquals(answerMemberVO, memVo);
 		
