@@ -9,9 +9,13 @@
 </head>
 <body>
 	<% List<JobsVO>list = (List<JobsVO>)request.getAttribute("jobs"); %>
+	<table border="1">
+		<th>id</th>
+		<th>title</th>
 	<% for(JobsVO jobs : list){%>
-		job_id : <%out.write(jobs.getJob_id());%>
-		job_title : <%out.write(jobs.getJob_title());%><br>
+		<tr><td> <%out.write(jobs.getJob_id());%></td><td><%out.write(jobs.getJob_title());%></td></tr>
+	
 	<%} %>
+	</table>
 </body>
 </html>
