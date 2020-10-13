@@ -20,6 +20,14 @@ public class loginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(loginServlet.class);
 	
+	//
+	private MemberServiceI memService;
+	
+	@Override
+	public void init() throws ServletException {	
+		memService = new MemberService();
+	}
+	
     //longin 화면에서 사용자가 보낸 아이디 비밀번호를 사용하여 로그인 처리   
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,8 +36,6 @@ public class loginServlet extends HttpServlet {
 		logger.debug("userId : {}, password : {}", userId, password);
 		
 		// 파라미터로 온 userId가 db상에 존재하는지 확인하고, 비밀번홎가 데이터베이스에 저장된 비밀번호와 일치하는지 확인
-		
-		MemberServiceI memService = new MemberService();
 		MemberVO memvo = memService.getMember(userId);
 		
 		// db에 등록된 회원이 없는 경우 또는 db에 등록된 회원이고, 비밀번호가 일치하지 않는 경우 다시로그인 페이지로이동
