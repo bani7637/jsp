@@ -8,9 +8,14 @@ import kr.or.ddit.jobs.model.JobsVO;
 
 public class JobsService implements JobsServiceI{
 
+	private JobsDaoI jobsDao;
+	
+	public JobsService() {
+		jobsDao = new JobsDao();
+	}
+	
 	@Override
 	public List<JobsVO> selectAllJobs() {
-		JobsDaoI jobsDao = new JobsDao();
 		return jobsDao.selectAllJobs();
 	}
 

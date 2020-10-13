@@ -23,11 +23,17 @@ import kr.or.ddit.jobs.service.JobsServiceI;
 public class selectAllJobs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(selectAllJobs.class);
-       
+    private JobsServiceI jobserService;   
+    
+    @Override
+    	public void init() throws ServletException {
+    	jobserService = new JobsService();
+    }
+    
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		JobsServiceI jobsService = new JobsService();
 		
-		List<JobsVO> jobs  = jobsService.selectAllJobs();
+		List<JobsVO> jobs  = jobserService.selectAllJobs();
 		request.setAttribute("jobs", jobs);
 		request.getRequestDispatcher("/jobs.jsp").forward(request, response);
 		
