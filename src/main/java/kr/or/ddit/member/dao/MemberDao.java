@@ -21,9 +21,10 @@ public class MemberDao implements MemberDaoI{
 //		memberVo.setPassword("passBrown");
 		SqlSession sqlSession = MybatisUtil.getSqlSession();
 		
+		
 		// select 결과가 한개일때 selectOne
 		MemberVO memberVo = sqlSession.selectOne("member.getMember", userId);
-		
+		sqlSession.close();
 		
 		// select 결과가 여러개일때 selectList
 		// sqlSession.selectList(statement, parameter)
@@ -35,6 +36,8 @@ public class MemberDao implements MemberDaoI{
 	public List<MemberVO> selectAllMember() {
 		SqlSession sqlSession = MybatisUtil.getSqlSession();
 		List<MemberVO> memberList = sqlSession.selectList("member.selectAllMember");
+		
+		sqlSession.close();
 		return memberList;
 	}
 	
