@@ -1,0 +1,34 @@
+표현식<% %>  => EL(Expression Language)
+스크립틀릿<%= %> => 루프, 조건주기 ==> JSTL(jsp standard tag library)
+
+==> 나중에 사용하지 않음 더 보기 쉽게 표현할 수 있는 방법이 있음
+
+ scope 기본객체를 쉽게 사용할 수 있음(EL, JSTL)
+
+ EL
+ jsp의 기본문법을 보완하는 언어
+ 표현식을 간결하게 표현할 수 있음
+ 사용방법 : ${속성명}  ==> 범위가 좁은 scope부터 넓은 scope로 탐색 => page > request > session > application
+ 
+ main.jsp 기본코드
+<% MemberVO memvo = (MemberVO)session.getAttribute("S_MEMBER"); %>
+JSP/SPRING	<% if(memvo!=null){%> [ <%= memvo.getUserid() %>] <%} %>
+
+기존 스크립틀릿 표현식의 경우 개발자가 null 처리도 해야하지만 EL의 경우 null값의 경우 자동적으로 처리해주기 때문에 별도의 처리가 필요없음
+위 코드는 session 영역에 S_MEMBER라는 이름으로 속성이 저장되어 있고 타입 MemberVO
+
+=>EL을 통해 접근한 코드
+${S_MEMBER.필드명} --> ${S_MEMBER.userid}
+vo.필드명을 작성하더라도 EL에서 해당 필드의 getter메소드를 호출
+(getter, setter메소드 이름의 네이밍 룰을 따르기 떄문에 유추할 수 있음)
+
+
+객체 Scope에서 애트리뷰트의 이름이 같을 경우, Scope가 작은 범위에서 큰 범위로 해당 이름이 존재하는지 찾습니다.
+예를 들어, request scope에 A 애트리뷰트가 있고 session scope에 동일한 이름의 A 애트리뷰트가 있을 때,
+${ A }의 결과는 request scope에 있는 A 애트리뷰트의 값이 출력될 것입니다.
+
+
+ 
+ 
+
+

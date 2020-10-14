@@ -56,7 +56,7 @@ $(function(){
 
 <%-- action : 요청을 보낼 경로 --%>
 <%-- method : 요청 방식(get, post 2가지만 가능, 기본 => get) --%>
-	<form action="<%= request.getContextPath() %>/request/getRequestResponse.jsp" method="get" id="form1">
+	<form action="${pageContext.request.contextPath}/request/getRequestResponse.jsp" method="get" id="form1">
 		<label for="id">user id : </label><input type="text" name="id" value="바니"><br>
 		<label for="id">user id : </label><input type="text" name="id" value="샐리"><br>
 		<label for="pass">password : </label><input type="password" value="pass1234"

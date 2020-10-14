@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" action="<%=request.getContextPath()%>/mulCalculation">
+	<form method="post" action="${pageContext.request.contextPath}/mulCalculation">
 		param1 : <input name=param1 type="text" /> 
 		param2 : <input name=param2 type="text" />
 				 <input type="submit" value="계산" />
