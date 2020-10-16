@@ -41,8 +41,8 @@
 					<th>등록일시</th>
 				</tr>
 				<tr>
-			<% request.getAttribute("memberList"); %>
-			<c:forEach items="${memberList}" var="member">
+			<% request.getAttribute("memList"); %>
+			<c:forEach items="${memList}" var="member">
 					<td>${member.userid}</td>
 					<td>${member.usernm}</td>
 					<td>${member.alias}</td>
@@ -52,17 +52,28 @@
 				
 			</table>
 		</div>
-
+			<select id="selec" >
+			    <option value="">pageSize:5</option>
+			    <option value="3">pageSize:3</option>
+			    <option value="7">pageSize:7</option>
+			    <option value="10">pageSize:10</option>
+			</select>
+			<button type="button">확인</button>
 		<a class="btn btn-default pull-right">사용자 등록</a>
-
 		<div class="text-center">
 			<ul class="pagination">
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
+				<c:forEach begin="1" end="${pages }" var="i">
+					<c:choose>
+						<c:when test="${i == page}">
+							<li class="active"><span>${i }</span></li>							
+						</c:when>
+						<c:otherwise>
+							<li><a href="${pageContext.request.contextPath }/getpage?page=${i}">${i}</a></li>							
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>			
 			</ul>
+			
 		</div>
 	</div>
 </div>

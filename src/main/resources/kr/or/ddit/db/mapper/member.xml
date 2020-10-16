@@ -10,8 +10,26 @@
   </select>
   
   
-  <select id="selectAllMember" resultType="MemberVo">
+  <select id="selectAllMember" resultType="MemberVo" >
   	 SELECT * 
     FROM users 
   </select>
+  
+  <select id="selectMemberPageList" resultType="MemberVo" parameterType="int">
+	SELECT *
+	FROM
+  (
+    SELECT 
+      ROWNUM rn, a.* 
+    FROM 
+      (
+      SELECT * FROM users
+    ORDER BY userid) a)  
+	WHERE rn between (#{page}-1) * #{pageSize} + 1 and #{page} * #{pageSize}
+	</select>
+	
+	<select id="selectMemberTotalCount" resultType="int">
+	SELECT COUNT(*)
+	FROM users
+	</select>
 </mapper>

@@ -25,15 +25,15 @@ public class MemberDaoTest {
 		MemberVO memVo = memberDao.getMember(userId);
 
 		/***Then***/
-//		assertEquals("brown", memVo.getUserid());
-//		assertEquals("passBrown", memVo.getPass());
+		assertEquals("brown", memVo.getUserid());
+		assertEquals("brownPass", memVo.getPass());
 		
 		// assertEquals = > 객체 x와 y가 일치함을 확인 => x(예상 값)와 y(실제 값)가 같으면 테스트 통과 
 		
 		// 새로운 VO, 원래있던 VO => 들어있는 값은 같으나 테스트 실패하는 이유
 		// 새로운 VO, 원래있던 VO 를 new 해서 생성했기때문에 다른객체로 인식함
 		// => 해결방법 = VOclass에 hashCode() and equals() 메서드 생성
-		assertEquals(answerMemberVO, memVo);
+//		assertEquals(answerMemberVO, memVo);
 	}
 
 }

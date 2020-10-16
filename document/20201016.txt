@@ -1,0 +1,13 @@
+기존 : page 파라미터만 받고 있음, 디폴트1
+변경 : page 파라미터만 받고 있음, 디폴트1
+	 **추가
+	 pageSize 파라미터 추가, 디폴트 5
+	 pageSize 가 있을수도있고 없을수도있음
+	 7을 pageSize 로 변경해야함 
+	 pageSize인자로 넘겨야하는 데 param type이 변경되야함 현재 int pageVO만들어서 VO객체로 인자값넘겨주기
+	 
+	 VO만들기, dao, service, 서블릿, xml, 수정할것
+	 
+	 test코드만들것
+	 
+	 

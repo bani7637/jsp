@@ -21,7 +21,24 @@ public class MemberDaoTest2 {
 		List<MemberVO> memList = memDao.selectAllMember();
 		
 		/***Then***/
-		assertEquals(5, memList.size());
+		assertEquals(15, memList.size());
+		
+		
+	}
+	
+	
+	
+	@Test
+	public void selectMemberTotalCountTest() {
+		/***Given***/
+		MemberDaoI memDao = new MemberDao();
+		
+		
+		/***When***/
+		int cnt = memDao.selectMemberTotalCount();
+		
+		/***Then***/
+		assertEquals(15, cnt);
 		
 		
 	}
