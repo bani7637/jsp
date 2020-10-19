@@ -11,7 +11,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="../../favicon.ico">
+<!-- <link rel="icon" href="../../favicon.ico"> -->
 
 <title>Signin Template for Bootstrap</title>
 
@@ -99,7 +99,7 @@
 			<label for="inputEmail" class="sr-only">Email address</label>
 			<input type="email" id="inputEmail" name="userId" value="brown" class="form-control" placeholder="Email address" required autofocus>
 			<label for="inputPassword" class="sr-only" >Password</label>
-			<input type="password" id="inputPassword" required value="passBrown" class="form-control" placeholder="Password" required name="password">
+			<input type="password" id="inputPassword" required value="brownPass" class="form-control" placeholder="Password" required name="password">
 			<div class="checkbox">
 				<label> <input type="checkbox" value="remember-me" id="remember">Remember me</label>
 			</div>

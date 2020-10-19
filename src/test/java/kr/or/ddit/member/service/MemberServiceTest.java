@@ -44,6 +44,7 @@ public class MemberServiceTest {
 		Locale[] locales = SimpleDateFormat.getAvailableLocales();
 		for(Locale locale : locales) {
 			logger.debug(locale.toString());
+			
 		}
 	}
 	

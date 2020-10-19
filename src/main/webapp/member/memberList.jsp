@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,15 @@
 <title>Jsp</title>
 <!-- <script src="/js/jquery/jquery-1.12.4.js"></script> -->
 <%@ include file="/layout/commonLib.jsp" %>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#selec").on("change",function(){
+		document.getElementById("#p")=$("#selec").val();
+
+		});
+	});
+
+</script>
 </head>
 
 <body>
@@ -46,14 +56,14 @@
 					<td>${member.userid}</td>
 					<td>${member.usernm}</td>
 					<td>${member.alias}</td>
-					<td>${member.reg_dt}</td>
+					<td><fmt:formatDate value="${member.reg_dt}" pattern="yyyy-MM-dd"/></td>
 				</tr>
 				</c:forEach>
 				
 			</table>
 		</div>
-			<select id="selec" >
-			    <option value="">pageSize:5</option>
+			<select id="selec" name="selec">
+			    <option value="5"><c:set var="sel" value="5"/>pageSize:5</option>
 			    <option value="3">pageSize:3</option>
 			    <option value="7">pageSize:7</option>
 			    <option value="10">pageSize:10</option>
