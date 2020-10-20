@@ -67,7 +67,8 @@ public class loginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		logger.debug("RequestCounterFilter 전처리 끝, loginservlet ");
+		logger.debug("RequestCounterFilter 전처리 끝, loginservlet-doGet ");
+		logger.debug("UNT_CD parameter : {}", req.getParameter("UNT_CD"));
 		req.getRequestDispatcher("/login.jsp").forward(req, resp);
 	}
 }

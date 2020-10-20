@@ -14,3 +14,25 @@ loginServlet
  - RequestCounterFilter 전처리
  - RequestCounterFilter 전처리 끝, loginservlet 
  - RequestCounterFilter 후처리
+ 
+ 
+ --------------------------------------------------
+ 
+ 
+ 
+ Wrapper
+ int -> integer
+ HttpServletRequest => 새로운 객체로 생성   // int를 integer객체로 만드는것처럼 HttpServletRequest 도 parameter를 수정하기위해 객체로 생성함
+
+ request.getParameter() 메소드는 존재(getter)   | ==> 파라미터를 개발자가 임의로 수정하거나 추가할 수 없다
+ request.setParameter() 메소드는 없음(setter)   | ==> (파라미터를)수정하기 위해서는 HttpServletRequest객체를 이용하여 새로은 wrapper클래스를 생성해서 기존 request를 대체 
+ 											 
+ request.getAttribute() 메소드는 존재(getter)   |
+ request.setAttribute() 메소드는 존재(setter)   |
+ 
+ filter/requestParameter.jsp에서 request.getParameterMap()메소드를 통해 얻은 Map객체에 파라미터를 임의로 추가, 수정하는 작업이 불가능
+ request.getParameterMap()을 통해 새로운 map 객체를 생성하고 해당 map 객체에 필요한 파라미터를  추가, 이후 프로세스에서는 새롭게 만든 map객체로 전달
+ 
+ 1. map객체를 조작할 Filter
+ 2. HttpServletRequest객체를 대신할 wrapper
+    HttpServletRequestWrapper클래스를 상속
