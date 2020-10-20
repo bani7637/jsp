@@ -63,9 +63,11 @@ public class loginServlet extends HttpServlet {
 		
 	}
 
-	//longin 화면을 클라이언트에게 응답으로 생성
+	//login 화면을 클라이언트에게 응답으로 생성
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		logger.debug("RequestCounterFilter 전처리 끝, loginservlet ");
 		req.getRequestDispatcher("/login.jsp").forward(req, resp);
 	}
 }

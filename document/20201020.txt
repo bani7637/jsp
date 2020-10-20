@@ -1,0 +1,16 @@
+RequestCountFilter
+loginServlet
+ 
+ //전처리(요청이 요청을 처리할 서블릿으로 가기 전)
+ chain.doFilter
+ 
+ //후처리(생성된 응답이 클라이언트에게 가는중)
+ 
+ 흐름상 순서 : 전처리--> 서블릿 --> 후처리 
+ 
+ --------------consolelogger출력-----------------
+ - RequestCounterFilter.doFilter()
+ - uri:/login
+ - RequestCounterFilter 전처리
+ - RequestCounterFilter 전처리 끝, loginservlet 
+ - RequestCounterFilter 후처리

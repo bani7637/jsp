@@ -46,7 +46,15 @@ public class RequestCounterFilter implements Filter{
 		else {
 			requestCounterMap.put(req.getRequestURI(), value+1);
 		}
+		//등록된 다른 필터로 요청위임
+		//만약 더이상 등록된 필터가 없을 경우 요청을 처리할 서블릿 / jsp로 요청을 전달
+		
+		// 전처리 : 요청이 서블릿으로 가기전에 실행되는부분
+		logger.debug("RequestCounterFilter 전처리");
 		chain.doFilter(request, response);
+		// 후처리 
+		logger.debug("RequestCounterFilter 후처리");
+		
 	}
 
 	@Override
