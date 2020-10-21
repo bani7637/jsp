@@ -21,7 +21,8 @@
 					<li><a href="#">Settings</a></li>
 					<li><a href="#">Profile</a></li>
 					<li><a href="#">Help</a></li>
-				</ul>0
+					<li><a href="${cp}/logout">Logout</a></li>
+				</ul>
 				<form class="navbar-form navbar-right">
 					<input type="text" class="form-control" placeholder="Search...">
 				</form>

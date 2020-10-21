@@ -18,13 +18,11 @@
 <!-- <script src="/js/jquery/jquery-1.12.4.js"></script> -->
 <%@ include file="/layout/commonLib.jsp" %>
 <script type="text/javascript">
-$(document).ready(function(){
-	$("#selec").on("change",function(){
-		document.getElementById("#p")=$("#selec").val();
-
-		});
-	});
-
+	function selChange() {
+		var sel = document.getElementById('cntPerPage').value;
+		location.href="getpage?pageSize="+sel;
+	}
+	
 </script>
 </head>
 
@@ -59,16 +57,21 @@ $(document).ready(function(){
 					<td><fmt:formatDate value="${member.reg_dt}" pattern="yyyy-MM-dd"/></td>
 				</tr>
 				</c:forEach>
-				
 			</table>
 		</div>
-			<select id="selec" name="selec">
-			    <option value="5"><c:set var="sel" value="5"/>pageSize:5</option>
-			    <option value="3">pageSize:3</option>
-			    <option value="7">pageSize:7</option>
-			    <option value="10">pageSize:10</option>
-			</select>
-			<button type="button">확인</button>
+			<select id="cntPerPage" name="sel" onchange="selChange()">
+			<option value="">줄선택</option>
+			<option value="5"
+				<c:if test="${cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+			<option value="6"
+				<c:if test="${cntPerPage == 6}">selected</c:if>>6줄 보기</option>
+			<option value="7"
+				<c:if test="${cntPerPage == 7}">selected</c:if>>7줄 보기</option>
+			<option value="8"
+				<c:if test="${cntPerPage == 8}">selected</c:if>>8줄 보기</option>
+			<option value="10"
+				<c:if test="${cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+		</select>
 		<a class="btn btn-default pull-right">사용자 등록</a>
 		<div class="text-center">
 			<ul class="pagination">

@@ -36,3 +36,32 @@ loginServlet
  1. map객체를 조작할 Filter
  2. HttpServletRequest객체를 대신할 wrapper
     HttpServletRequestWrapper클래스를 상속
+    
+event Listener ==> event handler
+jquery를 활용하여 버튼이 클릭되었을때 특정 로직이 실행 하도록 event handler등록
+$("#btn").on("click",function(){
+});
+
+web.xml에 리스너 등록
+
+서버에도 감지할수 있는 종류가 존재
+life cycle : scope 객체가 생성되고, 소멸될 때 이벤트 감지
+attribute : scope 객체에 속성이 추가되거나, 수정, 변경될때 이벤트감지
+기타등등 
+
+  						life cycle						attribute
+request 		servletRequestListener			servletRequestAttributeListener
+session			HttpSessionListener				HttpSessionAttributeListener
+appliction  	servletContextListener			SerlvetContextAttributeListener
+    
+    
+logout 기능 추가
+/logout url요청시
+세션에 저장된 속성 제거 session.invalidate();
+응답화면 : login.jsp
+
+//SessionAttributeListener.removed
+userMap에서 해당 사용자 정보 삭제
+userMap.jsp에서 로그아웃한 사용자가 안나오는것 확인
+    
+    
