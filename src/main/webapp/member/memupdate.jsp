@@ -16,6 +16,7 @@
 
 <title>Jsp</title>
 
+<!-- <script src="/js/jquery/jquery-1.12.4.js"></script> -->
 <%@ include file="/layout/commonLib.jsp"%>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -39,22 +40,7 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 				<form class="form-horizontal" role="form">
-<!-- 					<div class="form-group"> -->
-<!-- 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label> -->
-<!-- 						<div class="col-sm-10"> -->
-<!-- 							<input type="text" class="form-control" id="userId" name="userId" -->
-<!-- 								placeholder="사용자 아이디"> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-
-					<div class="form-group">
-						<label for="userfile" class="col-sm-2 control-label">사용자 사진</label>
-						<div class="col-sm-10">
-<%-- 							<img src="${cp }/profile/${memberVO.filename}"/> --%>
-							<img src="${cp }/profileImg?userid=${memberVO.userid}"/>
-						</div>
-					</div>
-					<div class="form-group">
+				<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
 							<label class="control-label">${memberVO.userid }</label>
@@ -64,52 +50,51 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
-							<label class="control-label">${memberVO.usernm }</label>
+							<input type="text" class="form-control" id="userNm" name="userNm"
+								placeholder="${memberVO.usernm }">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
-							<label class="control-label">${memberVO.alias }</label>
+							<input type="text" class="form-control" id="userAlias"
+								name="userAlias" placeholder="${memberVO.alias }">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">Password</label>
 						<div class="col-sm-10">
-							<label class="control-label">******</label>
+							<input type="password" class="form-control" id="pass" name="pass"
+								placeholder="${memberVO.pass }">
 						</div>
 					</div>
-					
-					
 					<div class="form-group">
 						<label for="addr1" class="col-sm-2 control-label">주소</label>
 						<div class="col-sm-10">
-							<label class="control-label">${memberVO.addr1 }</label>
+							<input type="password" class="form-control" id="pass" name="pass"
+								placeholder="${memberVO.addr1 }">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="addr2" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-							<label class="control-label">${memberVO.addr2 }</label>
+							<input type="password" class="form-control" id="pass" name="pass"
+								placeholder="${memberVO.addr2 }">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
+						<label for="zipcode" class="col-sm-2 control-label">zipcode</label>
 						<div class="col-sm-10">
-							<label class="control-label">${memberVO.zipcode }</label>
+							<input type="password" class="form-control" id="pass" name="pass"
+								placeholder="${memberVO.zipcode }">
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="reg_dt" class="col-sm-2 control-label">등록일자</label>
-						<div class="col-sm-10">
-							<label class="control-label"><fmt:formatDate value="${memberVO.reg_dt }" pattern="YYYY-MM-dd"/></label>
-						</div>
-					</div>
-					
+
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="button" class="btn btn-default" id="button">사용자 수정</button>
+							<button type="submit" class="btn btn-default">사용자 수정</button>
 						</div>
+					</div>
 					</div>
 				</form>
 			</div>

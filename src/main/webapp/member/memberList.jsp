@@ -34,9 +34,7 @@
 	
 </script>
 </head>
-
 <body>
-
 	<%@ include file="/layout/header.jsp"%>
 	<div class="container-fluid">
 		<div class="row">
@@ -88,6 +86,7 @@
 							<option value="10"
 								<c:if test="${cntPerPage == 10}">selected</c:if>>10줄 보기</option>
 						</select> <a class="btn btn-default pull-right">사용자 등록</a>
+						<c:set var="page" value=""/>
 						<div class="text-center">
 							<ul class="pagination">
 								<c:forEach begin="1" end="${pages }" var="i">
