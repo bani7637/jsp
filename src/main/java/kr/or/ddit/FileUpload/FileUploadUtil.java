@@ -13,7 +13,6 @@ public class FileUploadUtil {
 	      String filename = "";
 	      String[] values = contentDisposition.split("; ");
 	      
-	      logger.debug("values : {}", values);
 	      
 	      for (String index : values) {
 	         String[] value = index.split("=");
@@ -24,4 +23,19 @@ public class FileUploadUtil {
 	      }
 	      return filename;
 	   }
+	   
+	  public static String getExtenstion(String filename) {
+//		  String[] ext = filename.split("\\.");
+//		  String fileExt = ext[0];
+//		  logger.debug("확장자:{}",fileExt);
+//		  return fileExt;
+		  
+		  if(filename == null || filename.indexOf(".") == -1) {
+			  logger.debug("없음");
+			  return "";
+		  }else {
+			  logger.debug("확장자:{}",filename.split("\\.")[1]);
+			  return filename.split("\\.")[1];
+		  }
+	  }
 	}

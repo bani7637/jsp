@@ -46,6 +46,19 @@ public class MemberServiceTest {
 			logger.debug(locale.toString());
 			
 		}
+		
+	}
+	@Test
+	public void updateMember() {
+		/***Given***/
+		MemberServiceI memberService = new MemberService();
+
+		MemberVO memberVO = new MemberVO("bani", "test", "test", "test", "test", "test",
+				"34940", "d:\\profile\\bani.png", "bani.png");
+		/***When***/
+		int updateCnt = memberService.updateMember(memberVO);
+		/***Then***/
+		assertEquals(1, updateCnt);
 	}
 	
 }

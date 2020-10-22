@@ -85,8 +85,7 @@
 								보기</option>
 							<option value="10"
 								<c:if test="${cntPerPage == 10}">selected</c:if>>10줄 보기</option>
-						</select> <a class="btn btn-default pull-right">사용자 등록</a>
-						<c:set var="page" value=""/>
+						</select> <a class="btn btn-default pull-right" href="${pageContext.request.contextPath }/memberRegist">사용자 등록</a>
 						<div class="text-center">
 							<ul class="pagination">
 								<c:forEach begin="1" end="${pages }" var="i">

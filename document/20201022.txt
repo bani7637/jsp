@@ -1,0 +1,23 @@
+memberList.jsp
+
+사용자 등록버튼 클릭시 (/memberRegist get)
+사용자 등록하면 응답생성
+새로운 생성자를 등록 ==> 별도의 파라미터는 필요 없음
+
+1. servlet : MemberRegistServlet =>  membercontroller
+2. jsp : memberRegist.jsp => member.jsp복사해서 만들기
+
+중복되지 않는 값 생성 
+db : sequence => 단점 : 사용자가 잘못된정보입력시 시퀀스 정상 작동 안함  => 1,2,3,4,6.. 순차적이지않음 
+	 키 값을 저장한 테이블(사용여부컬럼을 주고 키를 사용했는지 안했는지 관리함) => 손이 많이감
+java : UUID - 무료
+
+test 메소드 : 
+@BeforeClass (static으로 선언해줘야함)그래서 자주사용안함
+@Before => @Test => @After순으로 실행 
+@AfterClass(static으로 선언해줘야함)그래서 자주사용안함
+
+화면 생성 위임시 forward, redirect 선택시 참고규칙
+1. 특별한경우가 아니면 forward를 선택
+2. 단 서버의 상태가 변경되는 요청에 대해서는 redirect로 응답을 생성한다. 사용자가 새로고침을 눌렀을때 최초 요청 (서버의 상태가 변경되는 요청)을 피할 수 있다.
+ -> 데이터가 중복 등록 되는것을 방지할 수 있다.

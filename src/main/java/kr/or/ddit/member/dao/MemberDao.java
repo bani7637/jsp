@@ -59,6 +59,63 @@ public class MemberDao implements MemberDaoI{
 		return totalCnt;
 	}
 
+	@Override
+	public int insertMember(MemberVO memberVO) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int insertCnt = 0;
+		try {
+			insertCnt = sqlSession.insert("member.insertMember", memberVO);
+		} catch (Exception e) {
+			
+		}
+		
+		//정상적으로 실행했는지 확인하고 commit, rollback을 해줌
+		if(insertCnt ==1) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		return insertCnt;
+	}
+
+	@Override
+	public int deleteMember(String userid) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		
+		int deleteCnt = sqlSession.delete("member.deleteMember",userid);
+		
+		if(deleteCnt ==1) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return deleteCnt;
+	}
+
+	@Override
+	public int updateMember(MemberVO memberVO) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int updatetCnt = 0;
+		try {
+			updatetCnt = sqlSession.insert("member.updateMember", memberVO);
+		} catch (Exception e) {
+			
+		}
+		
+		//정상적으로 실행했는지 확인하고 commit, rollback을 해줌
+		if(updatetCnt ==1) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		return updatetCnt;
+	}
+
 	
 
 	

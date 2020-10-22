@@ -32,4 +32,15 @@
 	SELECT COUNT(*)
 	FROM users
 	</select>
+	
+	<insert id="insertMember" parameterType="MemberVo">
+	INSERT INTO users VALUES(#{userid}, #{usernm}, #{pass}, sysdate, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realFilename})
+	</insert>
+	<delete id="deleteMember" parameterType="String">
+		DELETE users WHERE userid =#{userid}
+	</delete>
+	<update id="updateMember" parameterType="MemberVo">
+		UPDATE users SET usernm=#{usernm}, pass=#{pass}, reg_dt=sysdate, alias=#{alias}, addr1=#{addr1}, addr2=#{addr2}, realFilename=#{realFilename}, filename=#{filename}, zipcode=#{zipcode}
+		where userid=#{userid}
+	</update>
 </mapper>

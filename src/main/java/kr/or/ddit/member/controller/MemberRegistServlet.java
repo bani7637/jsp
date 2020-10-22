@@ -1,6 +1,7 @@
 package kr.or.ddit.member.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.apache.catalina.connector.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,35 +20,30 @@ import kr.or.ddit.FileUpload.FileUploadUtil;
 import kr.or.ddit.member.model.MemberVO;
 import kr.or.ddit.member.service.MemberService;
 import kr.or.ddit.member.service.MemberServiceI;
-import oracle.net.aso.s;
 
 /**
- * Servlet implementation class memberUpdate
+ * Servlet implementation class MemberRegistServlet
  */
-@WebServlet("/memUpdate")
+@WebServlet("/memberRegist")
 @MultipartConfig
-public class memberUpdate extends HttpServlet {
+public class MemberRegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	private MemberServiceI memberService;
-	private static final Logger logger = LoggerFactory.getLogger(memberUpdate.class);
-
+	private static final Logger logger = LoggerFactory.getLogger(MemberRegistServlet.class);
+	
 	@Override
 	public void init() throws ServletException {
 		memberService = new MemberService();
 	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String userid = request.getParameter("userid");
-		MemberVO memberVO = memberService.getMember(userid);
-		request.setAttribute("memberVO", memberVO);
-		request.getRequestDispatcher("/member/memupdate.jsp").forward(request, response);
-
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/member/memberRegist.jsp").forward(request, response);
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	
+	//doXXX메서드에는 request, response 인자말고 다른 객체를 인자로 받아서 쓸수 있음=>  spring
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String userid = request.getParameter("userid");
 		String usernm = request.getParameter("usernm");
@@ -55,42 +52,33 @@ public class memberUpdate extends HttpServlet {
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
 		String zipcode = request.getParameter("zipcode");
+		logger.debug("parameter: {}, {}, {}, {}, {}, {}, {}", userid, usernm, alias, pass, addr1, addr2, zipcode);
 		
 		Part profile = request.getPart("realFilename");
-
+		logger.debug("file : {}",profile.getHeader("Content-Disposition"));
+		
 		String realFilename = FileUploadUtil.getFilename(profile.getHeader("Content-Disposition"));
 		String fileName = UUID.randomUUID().toString();
-		String ext = FileUploadUtil.getExtenstion(realFilename);
 		String filePath ="";
+		String ext = FileUploadUtil.getExtenstion(realFilename);
 		
-		if (realFilename == null|| realFilename.equals("")) {
-			MemberVO memberVO = memberService.getMember(userid);
-			String rf = memberVO.getRealFilename();
-			String fn = memberVO.getFilename();
-
-			filePath = fn;
-			realFilename = rf;
-		}
-		if (profile.getSize() > 0) {
+		if(profile.getSize()>0) {
 			filePath = "D:\\profile\\"+fileName+"."+ext;
 			profile.write(filePath);
 		}
-			
-
-			
+		// 사용자 정보등록
 		
-
-		MemberVO memberVO = new MemberVO(userid, pass, usernm, alias, addr1, addr2, zipcode, filePath, realFilename);
-
-		int res = memberService.updateMember(memberVO);
-		// 1건이 입력되어있을때, 1건이아닐때 비정상
-
-		if (res == 1) {
-			response.sendRedirect(request.getContextPath() + "/member?userid="+userid+"");
-		} else {
-			// 화면요청
-			doGet(request, response);
+		MemberVO memberVO = new MemberVO(userid, pass,  usernm,  alias,  addr1,  addr2,  zipcode, filePath, realFilename);
+		int res = memberService.insertMember(memberVO);
+		//1건이 입력되어있을때, 1건이아닐때 비정상
+		
+		if(res == 1) {
+			response.sendRedirect(request.getContextPath()+"/getpage");
+		}else {
+			//화면요청
+		doGet(request, response);
 		}
 	}
 
+	
 }

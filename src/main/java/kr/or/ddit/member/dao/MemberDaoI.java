@@ -10,9 +10,17 @@ public interface MemberDaoI {
 
 	//
 	MemberVO getMember(String userId);
+	
 	List<MemberVO> selectAllMember();
+	
 	List<MemberVO> selectMemberPageList(PageVO pv);
+	
 	int selectMemberTotalCount();
 	
+	int insertMember(MemberVO memberVO);
+	
+	int deleteMember(String userid);
+	
+	int updateMember(MemberVO memberVO);
 	
 }

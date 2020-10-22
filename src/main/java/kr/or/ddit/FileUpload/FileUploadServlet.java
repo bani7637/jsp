@@ -52,7 +52,10 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("imgPart.getContentType() : {}",imgPart.getContentType());
 		logger.debug("Content_Disposition : {}", imgPart.getHeader("Content-Disposition"));
 		String fileName = FileUploadUtil.getFilename(imgPart.getHeader("Content-Disposition"));
+		
+		
 		imgPart.write("d:\\upload\\"+fileName);
+		
 		imgPart.delete();
 	}
 
