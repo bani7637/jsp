@@ -65,11 +65,9 @@ public class memberUpdate extends HttpServlet {
 		
 		if (realFilename == null|| realFilename.equals("")) {
 			MemberVO memberVO = memberService.getMember(userid);
-			String rf = memberVO.getRealFilename();
-			String fn = memberVO.getFilename();
+			realFilename = memberVO.getRealFilename();
+			filePath = memberVO.getFilename();
 
-			filePath = fn;
-			realFilename = rf;
 		}
 		if (profile.getSize() > 0) {
 			filePath = "D:\\profile\\"+fileName+"."+ext;

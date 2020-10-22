@@ -4,20 +4,32 @@ public class PageVO {
 
 	private int page;
 	private int pageSize;
-	
-	
+
+	public PageVO() {
+
+	}
+
+	public PageVO(int page, int pageSize) {
+		this.page = page;
+		this.pageSize = pageSize;
+	}
+
 	public int getPage() {
 		return page;
 	}
+
 	public void setPage(int page) {
 		this.page = page;
 	}
+
 	public int getPageSize() {
 		return pageSize;
 	}
+
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -26,6 +38,7 @@ public class PageVO {
 		result = prime * result + pageSize;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -41,10 +54,11 @@ public class PageVO {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "PageVO [page=" + page + ", pageSize=" + pageSize + "]";
 	}
-	
+
 	
 }
