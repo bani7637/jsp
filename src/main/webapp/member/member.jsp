@@ -25,9 +25,14 @@
 			});
 		$("#deletemem").on("click",function(){
 			var userid2 = "${memberVO.userid}"
-				console.log(userid2);
-				location.href="memDelete?userid="+userid2;
+			location.href="memDelete?userid="+userid2;
 		});
+		
+		$("#profileDownBtn").on("click",function(){
+			document.location ="/profileDownload?userid=${memberVO.userid}";
+				
+		});
+		
 	});
 </script>
 </head>
@@ -52,6 +57,13 @@
 							<img src="${cp }/profileImg?userid=${memberVO.userid}"/>
 						</div>
 					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="button" class="btn btn-default" id="profileDownBtn">다운로드:${memberVO.realFilename }</button>
+						</div>
+					</div>	
+				
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">

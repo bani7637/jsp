@@ -1,0 +1,25 @@
+1. 파일 다운로드 
+파일업로드시 filename 가져온 방법? 
+content-Disposition 헤더에서 획득
+content-Disposition : //form-data; name="img"; filename="sally.png"; 
+일반적인 HTTP 응답에서 Content-Disposition 헤더는 컨텐츠가 브라우저에 inline 되어야 하는 웹페이지 자체이거나 웹페이지의 일부인지, 
+아니면 attachment로써 다운로드 되거나 로컬에 저장될 용도록 쓰이는 것인지를 알려주는 헤더입니다.
+==>>화면에 뿌릴건지, 다운받을건지
+
+
+application => 모든 종류의 이진 데이터를 표현
+
+octet stream은 이름에서처럼 8비트 단위의 바이너리 데이터를 의미
+특별히 표현할 수 있는 프로그램이 존재하지 않는 데이터의 경우 기본값으로 octet-stream을 사용합니다.
+Content-Disposition 헤더를 attachment 로 줌으로써 해당 데이터를 수신받은 브라우저가 파일을 저장 또는 다른이름으로 저장 여부를 설정하게 할 수 있습니다.
+
+
+
+2. 쿼리 (계층형, 답변형 게시판, 답변횟수에 제한이 없는)
+
+
+
+3. 웹에디터 
+ 하고 게시판
+ 
+ 
