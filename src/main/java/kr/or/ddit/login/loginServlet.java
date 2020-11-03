@@ -24,8 +24,8 @@ public class loginServlet extends HttpServlet {
 
 	/////////////////////////////////////////di안되는경우///////////////////
 	//서블릿의 제어권은 톰캣이 가지고있기때문에 서블릿에 주입이 안됨!
-	@Resource(name ="boardService")
-	private BoardServiceI BoardService;
+//	@Resource(name ="boardService")
+//	private BoardServiceI BoardService;
 	////////////////////////////////////////////////////////////////////
 	
 	@Override
