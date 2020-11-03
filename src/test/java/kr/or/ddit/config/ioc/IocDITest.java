@@ -97,7 +97,6 @@ public class IocDITest {
 		assertEquals("내용", person.getBoardRepository().getBoard(1).getContent());
 		
 		
-		
 	}
 
 }
