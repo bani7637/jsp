@@ -1,4 +1,4 @@
-package kr.or.ddit.ioc;
+package kr.or.ddit.config.ioc;
 
 public class Dbproperty {
 	private String user;

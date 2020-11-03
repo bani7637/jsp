@@ -7,7 +7,7 @@
 	
 	<context:property-placeholder location="classpath:kr/or/ddit/config/db/db.properties"/>
 	
-	<bean id="dbProperty" class="kr.or.ddit.ioc.Dbproperty">
+	<bean id="dbProperty" class="kr.or.ddit.config.ioc.Dbproperty">
 		<property name="driver" value="${jdbc.driver}"/>
 		<property name="url" value="${jdbc.url}"/>
 		<property name="user" value="${jdbc.username}"/>
