@@ -8,6 +8,8 @@
 	<!-- 
 		kr.or.ddit 패키지 하위의 클래스 중 @Service, @Repository 어노테이션이 붙은 클래스를 스캔하여 스프링 빈으로 생성
 		(부모컨테이너에서 사용할 서비스, 저장소 스캔)
+		use-default-filters = > ture >> component, controller, service, repository 전부 스캔
+		
 	-->
 	<context:component-scan base-package="kr.or.ddit" use-default-filters="false">
 		<!-- 추가 : include -->

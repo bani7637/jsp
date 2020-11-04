@@ -1,4 +1,4 @@
-package kr.or.ddit.login;
+package kr.or.ddit.login.web;
 
 import java.io.IOException;
 
@@ -31,8 +31,6 @@ public class loginServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {	
 	}
-	
-  
 
 	//login 화면을 클라이언트에게 응답으로 생성
 	@Override

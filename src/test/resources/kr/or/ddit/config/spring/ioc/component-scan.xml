@@ -17,4 +17,5 @@
 		BeanPostProcessor 빈생성 후에 작업하는 processor
 	 -->
 	 <context:annotation-config/>
+	 <!-- 위에 스캔에서 이작업을 해주긴하는데, 관습적으로 쓰는경향이있음, 특별한 bean이 있을 경우를 대비해서 써놓은거임.-->
 </beans>

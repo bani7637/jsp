@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 import kr.or.ddit.board.model.BoardVO;
 @Repository("boardRepository")
 public class BoardRepository implements BoardRepositoryI {
-
+	
+	
+	
 	@Override
 	public BoardVO getBoard(int boardNo) {
 		// db에서 조회를 해야하나, 지금은 설정이 갖춰지지 않았으므로

@@ -1,4 +1,4 @@
-package kr.or.ddit.login;
+package kr.or.ddit.login.web;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
