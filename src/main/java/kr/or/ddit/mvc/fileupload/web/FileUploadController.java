@@ -1,4 +1,4 @@
-package kr.or.ddit.fileupload.web;
+package kr.or.ddit.mvc.fileupload.web;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +44,6 @@ public class FileUploadController {
 		try {
 			multipartFile.transferTo(uploadFile);
 		} catch (IllegalStateException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

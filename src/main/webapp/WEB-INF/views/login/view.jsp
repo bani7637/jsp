@@ -92,7 +92,10 @@
 </head>
 
 <body>
-
+	msg : ${msg} <br>
+	session_msg : ${msg_session}<br>
+	<c:remove var="msg_session" scope="session"/>
+	msg_RedirectAttributes :${msg_ra}
 	<div class="container">
 		<form class="form-signin" action="${pageContext.request.contextPath}/login/process" method="post">
 			<h2 class="form-signin-heading">Please sign in</h2>

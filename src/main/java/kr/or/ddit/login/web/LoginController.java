@@ -78,7 +78,7 @@ public class LoginController {
 
 		logger.debug("LoginController.process() {} / {} / {}", userid, pass, memberVO);
 		logger.debug("user_id : {}", user_id);
-
+		 
 		MemberVO dbmemVO = memberService.getMember(userid);
 
 		if (dbmemVO != null && pass.equals(dbmemVO.getPass())) {
