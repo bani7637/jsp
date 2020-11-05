@@ -13,7 +13,7 @@ public class MemberVO {
 	private String zipcode;
 	private Date reg_dt;
 	private String filename;
-	private String realFilename;
+	private String realfilename;
 	
 	public MemberVO() {
 		
@@ -29,7 +29,7 @@ public class MemberVO {
 		this.addr2 = addr2;
 		this.zipcode = zipcode;
 		this.filename = filename;
-		this.realFilename = realfilename;
+		this.realfilename = realfilename;
 	}
 
 	public String getUserid() {
@@ -105,18 +105,18 @@ public class MemberVO {
 	}
 
 	public String getRealFilename() {
-		return realFilename;
+		return realfilename;
 	}
 
 	public void setRealFilename(String realFilename) {
-		this.realFilename = realFilename;
+		this.realfilename = realFilename;
 	}
 
 	@Override
 	public String toString() {
 		return "MemberVO [userid=" + userid + ", pass=" + pass + ", usernm=" + usernm + ", alias=" + alias + ", addr1="
 				+ addr1 + ", addr2=" + addr2 + ", zipcode=" + zipcode + ", reg_dt=" + reg_dt + ", filename=" + filename
-				+ ", realFilename=" + realFilename + "]";
+				+ ", realFilename=" + realfilename + "]";
 	}
 
 	@Override
@@ -128,7 +128,7 @@ public class MemberVO {
 		result = prime * result + ((alias == null) ? 0 : alias.hashCode());
 		result = prime * result + ((filename == null) ? 0 : filename.hashCode());
 		result = prime * result + ((pass == null) ? 0 : pass.hashCode());
-		result = prime * result + ((realFilename == null) ? 0 : realFilename.hashCode());
+		result = prime * result + ((realfilename == null) ? 0 : realfilename.hashCode());
 		result = prime * result + ((reg_dt == null) ? 0 : reg_dt.hashCode());
 		result = prime * result + ((userid == null) ? 0 : userid.hashCode());
 		result = prime * result + ((usernm == null) ? 0 : usernm.hashCode());
@@ -170,10 +170,10 @@ public class MemberVO {
 				return false;
 		} else if (!pass.equals(other.pass))
 			return false;
-		if (realFilename == null) {
-			if (other.realFilename != null)
+		if (realfilename == null) {
+			if (other.realfilename != null)
 				return false;
-		} else if (!realFilename.equals(other.realFilename))
+		} else if (!realfilename.equals(other.realfilename))
 			return false;
 		if (reg_dt == null) {
 			if (other.reg_dt != null)
