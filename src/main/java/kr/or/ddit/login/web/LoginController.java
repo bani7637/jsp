@@ -76,10 +76,7 @@ public class LoginController {
 	public String process(String userid, String pass, MemberVO memberVO, HttpSession session, Model model,
 			@RequestParam(name = "email", required = false, defaultValue = "brown@line.kr") String user_id) {
 		
-//		session.setAttribute("rangers", userid);
 		logger.debug("LoginController.process() {} / {} / {}", userid, pass, memberVO);
-//		logger.debug("user_id : {}", user_id);
-		 logger.debug("sessiontest : {}",session.getAttribute("rangers"));
 		MemberVO dbmemVO = memberService.getMember(userid);
 
 		if (dbmemVO != null && pass.equals(dbmemVO.getPass())) {

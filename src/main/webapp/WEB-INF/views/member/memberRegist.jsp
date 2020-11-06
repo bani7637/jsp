@@ -3,6 +3,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +39,7 @@
 		//두개다 해줘야 안전함 일단생략 스프링수업때할예정
 				$("#frm").submit();
 		});
-		initData();
+		//initData();
 	});
 
 	function initData(){
@@ -74,6 +76,9 @@
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="usernm" name="usernm"
 								placeholder="이름을 입력하세요" value="${param.usernm }">
+								<span style="color: red;"><form:errors path="memberVO.usernm"/></span>
+								
+								
 						</div>
 					</div>
 					<div class="form-group">

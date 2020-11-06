@@ -12,6 +12,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.or.ddit.FileUpload.FileUploadUtil;
 import kr.or.ddit.login.web.LoginController;
+import kr.or.ddit.member.model.JSRMemberVo;
 import kr.or.ddit.member.model.MemberVO;
+import kr.or.ddit.member.model.MemberVoValidator;
 import kr.or.ddit.member.model.PageVO;
 import kr.or.ddit.member.service.MemberServiceI;
 
@@ -112,7 +115,18 @@ public class memberContorller {
 	}
 
 	@RequestMapping(path = "/memberRegist", method = { RequestMethod.POST })
-	public String regMember(MemberVO memberVO, @RequestPart("realfilename") MultipartFile multipartFile) {
+	public String regMember(@Valid MemberVO memberVO, BindingResult br, @RequestPart("realfilename") MultipartFile multipartFile) {
+	//public String regMember(@Valid JSRMemberVo memberVO, BindingResult br, @RequestPart("realfilename") MultipartFile multipartFile) {
+		
+		
+		
+		//new MemberVoValidator().validate(memberVO, br);
+		
+		// 에러가 있을 경우(검증을 통과하지 못한 경우) 사용자 등록 화면으로 이동
+		if(br.hasErrors()) {
+			return "member/memberRegist";
+		}
+		
 		File uploadFile = new File("d:\\upload_Spring\\" + multipartFile.getOriginalFilename());
 
 		try {

@@ -15,7 +15,7 @@
 		<!-- 추가 : include -->
 		<!-- 제외 : exclude -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-		
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
 	
 	

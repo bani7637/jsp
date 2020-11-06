@@ -18,4 +18,17 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
 	
+	<!-- 
+		messageSource 등록
+		bean id는 messageSource 로 고정!! 바꾸면 안됨!
+		property 는 배열로 선언하고 값을 list로 해도 프레임워크가 알아서 변환해줌
+		번들메시지_언어코드_국가코드.properties => 번들 메시지
+	 -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:kr/or/ddit/message/msg</value>
+			</list>
+		</property>
+	</bean>
 </beans>
