@@ -17,10 +17,13 @@
    <logger name="kr.or.ddit" level="debug">
        <appender-ref ref="STDOUT" />
    </logger> 
+   
    <logger name="org.springframework" level="debug">
        <appender-ref ref="STDOUT" />
    </logger>
-<!--    <root level="DEBUG"> -->
-<!--        <appender-ref ref="STDOUT" /> -->
-<!--    </root> -->
+   
+   <!-- 기본적으로 출력되는 로그 -->
+   <root level="DEBUG">
+       <appender-ref ref="STDOUT" />
+   </root>
 </configuration>

@@ -47,16 +47,11 @@ public class memberContorller {
 	}
 
 	@RequestMapping("/memberList")
-	public String getMemList(Model model, String page, String pageSize) {
-		logger.debug("page:{}",page);
-		
-		int page2 = page == null ? 1 : Integer.parseInt(page);
-
-		int pageSize2 = pageSize == null ? 5 : Integer.parseInt(pageSize);
-		
+	public String getMemList(Model model, @RequestParam(name ="page", required=false, defaultValue="1") int page,
+				@RequestParam(name ="pageSize", required=false, defaultValue="5") int pageSize) {
 		PageVO pv = new PageVO();
-		pv.setPage(page2);
-		pv.setPageSize(pageSize2);
+		pv.setPage(page);
+		pv.setPageSize(pageSize);
 		Map<String, Object>map = memberService.selectMemberPageList(pv);
 		model.addAttribute("memList", map.get("memberList"));
 		model.addAttribute("pages", map.get("pages"));
