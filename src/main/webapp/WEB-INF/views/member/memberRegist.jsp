@@ -5,21 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="../../favicon.ico">
 
-<title>Jsp</title>
-
-<!-- <script src="/js/jquery/jquery-1.12.4.js"></script> -->
-<%@ include file="/WEB-INF/views/layout/commonLib.jsp"%>
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -52,15 +38,12 @@
 		$("#zipcode").val("34904");	
 	}
 </script>
-</head>
+
 
 <body>
-	<%@ include file="/WEB-INF/views/layout/header.jsp"%>
-	<div class="container-fluid">
+	tiles :
 		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<%@ include file="/WEB-INF/views//layout/left.jsp"%>
-			</div>
+			
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<form class="form-horizontal" role="form" id="frm" action="${cp}/member/memberRegist" method="post" enctype="multipart/form-data">
 					<div class="form-group">
@@ -138,6 +121,6 @@
 			</form>
 		</div>
 	</div>
-	</div>
+
 </body>
 </html>
