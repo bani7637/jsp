@@ -20,6 +20,7 @@
 	
 	<bean id="progileImgView" class="kr.or.ddit.mvc.view.ProgileImgView"></bean>
 	<bean id="downloadImgView" class="kr.or.ddit.mvc.view.fileDownloadview"></bean>
+	<bean id="excelView" class="kr.or.ddit.mvc.view.ExcelDownloadView"></bean>
 	
 	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
