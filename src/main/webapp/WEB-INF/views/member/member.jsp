@@ -28,10 +28,10 @@
 			location.href="memDelete?userid="+userid2;
 		});
 		
-// 		$("#profileDownBtn").on("click",function(){
-// 			document.location ="/profileDownload?userid=${memberVO.userid}";
-				
-// 		});
+		$("#profileDownBtn").on("click",function(){
+			var userid3 ="${memberVO.userid}"
+				location.href ="${cp }/profile/profileDownload?userid="+userid3;
+		});
 		
 	});
 </script>
@@ -54,8 +54,8 @@
 					<div class="form-group">
 						<label for="userfile" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img src="${cp }/member/profileImg?userid=${memberVO.userid}"/>
-							<spring:url value ="${files}"/> 
+							<img src="${cp }/profile/profileImg?userid=${memberVO.userid}"/>
+							
 						</div>
 					</div>
 					

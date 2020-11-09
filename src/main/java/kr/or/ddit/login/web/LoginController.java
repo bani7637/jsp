@@ -40,11 +40,11 @@ public class LoginController {
 	// 모든 요청 메서드를 처리하기전에 가장 먼저 실행
 	@ModelAttribute("rangers")
 	public List<String> ranger(){
-		logger.debug("ranger()");
 		List<String> rangers = new ArrayList<String>();
 		rangers.add("brown");
 		rangers.add("cony");
 		rangers.add("sally");
+		logger.debug("rangers: {}", rangers );
 		
 		return rangers;
 	}
@@ -116,5 +116,26 @@ public class LoginController {
 		mav.getModelMap().addAttribute("msg", "fail");
 		
 		return mav;
+	}
+	
+	//localhost/login/json
+	//콘트롤러 메서드 호출 순서
+	//ranger() ==> model객체에 rangers라는 이름의 속성이 저장 ==> json()
+	//model객체 속성이 존재(rangers)
+	@RequestMapping("/json")
+	public String json() {
+		
+		return "jsonView";	//<bean id="jsonView" class="MappingJackson2JsonView"
+		// view resolver 현재 2개등록함
+		// 우선순위는 0순위 beanNameViewResolver
+		//			1순위 InternalResourceViewResolver
+		// 0순위에서 viewName 해당하는 빈이 있는지 찾음
+		// 만약 해당하는 bean(view)이 있으면 해당 view결과를 생성
+		// 0순위에서 해당빈을 찾지못하면
+		// 1순위로 이동
+		// prefix, surfix 설정에 따라 /WEB-INF/views/jsonView.jsp
+		// 1순위에는 view이름에 해당하는 자원이 존재 유무를 확인하지 않고 무조건 forwarding
+		// viewResolver순위를 가장 후순위로 미뤄야함
+		
 	}
 }

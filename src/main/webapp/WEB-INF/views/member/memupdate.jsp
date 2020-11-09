@@ -70,8 +70,7 @@
 						<label for="userfile" class="col-sm-2 control-label">사용자
 							사진</label>
 						<div class="col-sm-10">
-						<img src="${cp }/member/profileImg?userid=${memberVO.userid}"/>
-						
+						<img src="${cp }/profile/profileImg?userid=${memberVO.userid}"/>
 							<input type="file" id="realfilename" name="realfilename">
 							
 						</div>
