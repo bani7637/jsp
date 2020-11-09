@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,15 +99,15 @@
 	msg_RedirectAttributes :${msg_ra}
 	<div class="container">
 		<form class="form-signin" action="${pageContext.request.contextPath}/login/process" method="post">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="inputEmail" class="sr-only">Email address</label>
+			<h2 class="form-signin-heading"><spring:message code="login.signin"/> </h2>
+			<label for="inputEmail" class="sr-only"><spring:message code="login.userid"/></label>
 			<input type="email" id="inputEmail" name="userid" value="brown" class="form-control" placeholder="Email address" required autofocus>
-			<label for="inputPassword" class="sr-only" >Password</label>
+			<label for="inputPassword" class="sr-only" ><spring:message code="login.password"/></label>
 			<input type="password" id="inputPassword" required value="brownPass" class="form-control" placeholder="Password" required name="pass">
 			<div class="checkbox">
-				<label> <input type="checkbox" value="remember-me" id="remember">Remember me</label>
+				<label> <input type="checkbox" value="remember-me" id="remember"><spring:message code="login.rememberme"/></label>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="button" id="Signin">Sign in</button>
+			<button class="btn btn-lg btn-primary btn-block" type="button" id="Signin"><spring:message code="login.signin"/> </button>
 		</form>
 	</div>
 
