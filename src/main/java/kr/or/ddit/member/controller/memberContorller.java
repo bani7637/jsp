@@ -46,7 +46,7 @@ public class memberContorller {
 	public String getMember(String userid, Model model) {
 		MemberVO memberVO = memberService.getMember(userid);
 		model.addAttribute("memberVO", memberVO);
-		return "member/member";
+		return "tiles/member/member";
 	}
 
 	@RequestMapping("/memberList")
@@ -60,7 +60,9 @@ public class memberContorller {
 		model.addAttribute("pages", map.get("pages"));
 		model.addAttribute("pageSize", map.get("pageSize"));
 		logger.debug("memList:{}", map.get("pages"));
-		return "member/memberList";
+		//return "member/memberList";
+		//tiles-definition에 지정한 이름으로 설정
+		return "tiles/member/memberList_content";
 	}
 	
 	
@@ -68,7 +70,7 @@ public class memberContorller {
 	public String updateMember_view(String userid, Model model) {
 		MemberVO db_memberVO = memberService.getMember(userid);
 		model.addAttribute("memberVO", db_memberVO);
-		return "member/memupdate";
+		return "tiles/member/memupdate";
 	}
 
 	@RequestMapping(path = "/memUpdate", method = { RequestMethod.POST })
@@ -80,9 +82,9 @@ public class memberContorller {
 		String ext = FileUploadUtil.getExtenstion(realfilename);
 
 		if (realfilename.getBytes().length!=0) {
-			filePath = "d:\\upload_Spring\\" + fileName + "." + ext;
-			File uploadFile = new File("d:\\upload_Spring\\" + multipartFile.getOriginalFilename());
-
+			filePath = "D:\\profile\\" + fileName + "." + ext;
+			File uploadFile = new File("D:\\profile\\" + multipartFile.getOriginalFilename());
+			
 			try {
 				multipartFile.transferTo(uploadFile);
 			} catch (IllegalStateException | IOException e) {
@@ -104,14 +106,14 @@ public class memberContorller {
 		if (res == 1) {
 			return "redirect:/member/memberList";
 		} else {
-			return "member/memupdate";
+			return "tiles/member/memupdate";
 		}
 
 	}
 
 	@RequestMapping(path = "/memberRegist", method = { RequestMethod.GET })
 	public String regMember_view() {
-		return "member/memberRegist";
+		return "tiles/member/memberRegist";
 	}
 
 	@RequestMapping(path = "/memberRegist", method = { RequestMethod.POST })
@@ -124,24 +126,25 @@ public class memberContorller {
 		
 		// 에러가 있을 경우(검증을 통과하지 못한 경우) 사용자 등록 화면으로 이동
 		if(br.hasErrors()) {
-			return "member/memberRegist";
+			return "tiles/member/memberRegist";
 		}
 		
-		File uploadFile = new File("d:\\upload_Spring\\" + multipartFile.getOriginalFilename());
 
-		try {
-			multipartFile.transferTo(uploadFile);
-		} catch (IllegalStateException | IOException e) {
-			e.printStackTrace();
-		}
-
+	
 		String realfilename = multipartFile.getOriginalFilename();
 		String fileName = UUID.randomUUID().toString();
 		String filePath = "";
 		String ext = FileUploadUtil.getExtenstion(realfilename);
 		
 		if (realfilename.getBytes().length!=0 ) {
-			filePath = "d:\\upload_Spring\\" + fileName + "." + ext;
+			filePath = "D:\\profile\\" + fileName + "." + ext;
+		}
+		
+		File uploadFile = new File("D:\\profile\\" + fileName+"."+ext);
+		try {
+			multipartFile.transferTo(uploadFile);
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
 		}
 
 		MemberVO memberVO3 = new MemberVO(memberVO.getUserid(), memberVO.getPass(), memberVO.getUsernm(),
@@ -151,7 +154,7 @@ public class memberContorller {
 		if (res == 1) {
 			return "redirect:/member/memberList";
 		} else {
-			return "member/memberRegist";
+			return "tiles/member/memberRegist";
 		}
 	}
 
@@ -160,8 +163,9 @@ public class memberContorller {
 		int res = memberService.deleteMember(userid);
 		if (res == 1) {
 			return "redirect:/member/memberList";
+			
 		} else {
-			return "member/memupdate";
+			return "tiles/member/memupdate";
 		}
 	}
 	

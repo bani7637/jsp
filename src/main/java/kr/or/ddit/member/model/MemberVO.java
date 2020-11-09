@@ -2,8 +2,11 @@ package kr.or.ddit.member.model;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
+@XmlRootElement(name = "memberVo")
 public class MemberVO {
 	
 	private String userid;
