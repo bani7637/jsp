@@ -76,7 +76,7 @@
 							</c:when>
 							<c:otherwise>
 								<li><a
-									href="${pageContext.request.contextPath }/member/memberList?page=${i}">${i}</a></li>
+									href="${pageContext.request.contextPath }/member/memberList?page=${i}&pageSize=${pageSize}">${i}</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>

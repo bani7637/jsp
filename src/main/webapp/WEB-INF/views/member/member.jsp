@@ -26,7 +26,7 @@
 </script>
 
 <body>
-	tiles :
+	tiles : 
 		<div class="row">
 
 		

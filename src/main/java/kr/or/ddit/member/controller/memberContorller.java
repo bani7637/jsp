@@ -12,6 +12,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -42,12 +43,7 @@ public class memberContorller {
 	@Resource(name = "MemberService")
 	private MemberServiceI memberService;
 
-	@RequestMapping("/member")
-	public String getMember(String userid, Model model) {
-		MemberVO memberVO = memberService.getMember(userid);
-		model.addAttribute("memberVO", memberVO);
-		return "tiles/member/member";
-	}
+	
 
 	@RequestMapping("/memberList")
 	public String getMemList(Model model, @RequestParam(name ="page", required=false, defaultValue="1") int page,
@@ -160,6 +156,8 @@ public class memberContorller {
 
 	@RequestMapping("/memDelete")
 	public String memDelete(String userid) {
+		//session.getAttribute("userid");
+
 		int res = memberService.deleteMember(userid);
 		if (res == 1) {
 			return "redirect:/member/memberList";
@@ -169,6 +167,55 @@ public class memberContorller {
 		}
 	}
 	
+	@RequestMapping("/listAjaxPage")
+	public String listAjaxPage() {
+		return "tiles/member/listAjaxPage";
+	}
 	
-
+	//페이지 요청 list와 다르게 page, pageSize 파라미터가 반드시 존재한다는 가정으로 작성
+	//jsonview로 응답
+	@RequestMapping("/listAjax")
+	public String listAjax(PageVO pageVo, Model model) {
+		logger.debug("pageVO : {}", pageVo);
+		
+		Map<String, Object>map = memberService.selectMemberPageList(pageVo);
+		model.addAttribute("memList", map.get("memberList"));
+		model.addAttribute("pages", map.get("pages"));
+		model.addAttribute("pageSize", map.get("pageSize"));
+		
+		return "jsonView";
+	}
+	
+	// 응답을 html => jsp로 생성
+	@RequestMapping("/listAjaxHTML")
+	public String listAjaxHTML(PageVO pageVo, Model model) {
+		logger.debug("pageVO : {}", pageVo);
+		
+		Map<String, Object>map = memberService.selectMemberPageList(pageVo);
+		model.addAttribute("memList", map.get("memberList"));
+		model.addAttribute("pages", map.get("pages"));
+		model.addAttribute("pageSize", map.get("pageSize"));
+		
+		return "member/listAjaxHTML";
+	}
+	
+	@RequestMapping("/member")
+	public String getMember(String userid, Model model) {
+		MemberVO memberVO = memberService.getMember(userid);
+		model.addAttribute("memberVO", memberVO);
+		return "tiles/member/member";
+	}
+	
+	@RequestMapping("/memberAjaxPage")
+	public String memberAjaxPage() {
+		
+		return "tiles/member/memberAjax";
+	}
+	
+	@RequestMapping("/getmemberAjax")
+	public String getmemberAjax(String userid, Model model) {
+		MemberVO memberVO = memberService.getMember(userid);
+		model.addAttribute("memberVO", memberVO);
+		return "jsonView";
+	}
 }

@@ -23,9 +23,9 @@ public class AjaxController {
 	@ResponseBody
 	@RequestMapping(path = "/ajax/json",consumes = {"application/json"}, produces = {"application/xml","application/json"})
 	//415 에러 - 사용자가 보낸 데이터가 서버 쪽에서 막혀 있음 
-	public MemberVO json(@RequestBody MemberVO memberVO) {
-		logger.debug("body :{}", memberVO);
-		memberVO.setAlias("곰");
-		return memberVO;
+	public MemberVO json(@RequestBody MemberVO memberVo) {
+		logger.debug("body :{}", memberVo);
+		memberVo.setAlias("곰");
+		return memberVo;
 	}
 }
