@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import kr.or.ddit.member.Dao.MemberDao;
@@ -14,6 +16,7 @@ import kr.or.ddit.member.model.MemberVO;
 import kr.or.ddit.member.model.PageVO;
 @Service("MemberService")
 public class MemberService implements MemberServiceI{
+	private static final Logger logger = LoggerFactory.getLogger(MemberService.class);
 
 	//재사용하기 위해서 꼭 해야할것! 
 	@Resource(name = "MemberDao")	
@@ -49,6 +52,23 @@ public class MemberService implements MemberServiceI{
 
 	@Override
 	public int insertMember(MemberVO memberVO) {
+		
+//		logger.debug("1번째 insert 시작 전");
+//		memberDao.insertMember(memberVO);
+//		logger.debug("1번째 insert 종료 후");
+//		logger.debug("-----------------------");
+//
+//		logger.debug("2번째 insert 시작 전");
+//		memberDao.insertMember(memberVO);
+//		logger.debug("2번째 insert 종료 후");
+//		
+//		return 1;
+		
+//		1번째 쿼리는 정상적으로 성공하지만 2번째 쿼리에서 동일한 데이터를 입력하여
+//		primary key 제약조건에 의해 sql 실행 실패
+//		트랜잭션 설정을 service 레벨에 설정을 하였기 때문에 서비스 메서드에서 실행된 모든 쿼리를 
+//		자동으로 롤백처리 => 1번 쿼리 적용x
+		
 		return memberDao.insertMember(memberVO);
 	}
 

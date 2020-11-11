@@ -36,7 +36,7 @@ public class LoginController {
 
 	@Resource(name = "MemberService")
 	private MemberServiceI memberService;
-
+	//인터페이스로 해야지 aop할 수 있음 
 	
 	// 모든 요청 메서드를 처리하기전에 가장 먼저 실행
 	@ModelAttribute("rangers")
