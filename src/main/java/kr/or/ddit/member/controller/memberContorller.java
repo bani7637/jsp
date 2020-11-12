@@ -1,18 +1,11 @@
 package kr.or.ddit.member.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -25,13 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import kr.or.ddit.FileUpload.FileUploadUtil;
 import kr.or.ddit.login.web.LoginController;
-import kr.or.ddit.member.model.JSRMemberVo;
 import kr.or.ddit.member.model.MemberVO;
-import kr.or.ddit.member.model.MemberVoValidator;
 import kr.or.ddit.member.model.PageVO;
 import kr.or.ddit.member.service.MemberServiceI;
 

@@ -20,10 +20,9 @@ public class FileuploadControllerTest extends WebTestConfig{
 	public void getViewTest() throws Exception {
 		mockMvc.perform(get("/fileupload/view"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("fileupload/fileupload")).andDo(print());
+		.andExpect(view().name("/profile/fileupload"))
+		.andDo(print());
 	}
-	
-	
 	
 	
 	

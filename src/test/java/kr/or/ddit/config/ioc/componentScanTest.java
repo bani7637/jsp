@@ -9,12 +9,13 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import kr.or.ddit.WebTestConfig;
 import kr.or.ddit.board.model.BoardVO;
 import kr.or.ddit.board.repository.BoardRepositoryI;
 import kr.or.ddit.board.service.BoardServiceI;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:kr/or/ddit/config/spring/ioc/component-scan.xml"})
-public class componentScanTest {
+public class componentScanTest extends WebTestConfig{
 
 	@Resource(name = "boardRepository")
 	private BoardRepositoryI boardRepository;

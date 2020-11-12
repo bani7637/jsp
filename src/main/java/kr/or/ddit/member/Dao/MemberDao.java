@@ -4,14 +4,13 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import kr.or.ddit.member.model.MemberVO;
 import kr.or.ddit.member.model.PageVO;
 
-@Repository("MemberDao")
+@Repository("memberDao")
 public class MemberDao implements MemberDaoI {
 
 	@Resource(name = "sqlSessionTemplate")

@@ -9,21 +9,23 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import kr.or.ddit.member.Dao.MemberDao;
 import kr.or.ddit.member.Dao.MemberDaoI;
 import kr.or.ddit.member.model.MemberVO;
 import kr.or.ddit.member.model.PageVO;
+
+@Transactional
 @Service("MemberService")
 public class MemberService implements MemberServiceI{
 	private static final Logger logger = LoggerFactory.getLogger(MemberService.class);
 
 	//재사용하기 위해서 꼭 해야할것! 
-	@Resource(name = "MemberDao")	
+	@Resource(name = "memberDao")	
 	private MemberDaoI memberDao;
 	
 	public MemberService() {
-		memberDao = new MemberDao();
+		//memberDao = new MemberDao();
 	}
 	
 

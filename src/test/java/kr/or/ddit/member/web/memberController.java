@@ -24,7 +24,7 @@ public class memberController extends WebTestConfig {
 		mockMvc.perform(get("/member/member")
 				.param("userid", "brown"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("member/member"));
+		.andExpect(view().name("tiles/member/member"));
 	}
 	
 	@Test
@@ -33,7 +33,7 @@ public class memberController extends WebTestConfig {
 				.param("page", "1")
 				.param("pageSize", "5"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("member/memberList"));
+		.andExpect(view().name("tiles/member/memberList_content"));
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ public class memberController extends WebTestConfig {
 		mockMvc.perform(get("/member/memUpdate")
 				.param("userid", "brown"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("member/memupdate"));
+		.andExpect(view().name("tiles/member/memupdate"));
 	}
 	
 	
@@ -67,7 +67,7 @@ public class memberController extends WebTestConfig {
 	public void regMember_view() throws Exception {
 		mockMvc.perform(get("/member/memberRegist"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("member/memberRegist"));
+		.andExpect(view().name("tiles/member/memberRegist"));
 	}
 	
 	@Test
@@ -76,13 +76,13 @@ public class memberController extends WebTestConfig {
 		MockMultipartFile file = new MockMultipartFile("realfilename", "sally.png", "image/png", is);
 		mockMvc.perform(fileUpload("/member/memberRegist")
 				.file(file)
-				.param("userid", "z")
-				.param("pass", "z")
-				.param("usernm", "z")
-				.param("alias", "z")
-				.param("addr1", "z")
-				.param("addr2", "z")
-				.param("zipcode", "z")
+				.param("userid", "bani2")
+				.param("pass", "1234")
+				.param("usernm", "반이슬")
+				.param("alias", "bani")
+				.param("addr1", "대전 중구 중앙로 76")
+				.param("addr2", "영민빌딩 4층 404호")
+				.param("zipcode", "34904")
 				)
 		.andExpect(view().name("redirect:/member/memberList"));
 	}
@@ -90,8 +90,8 @@ public class memberController extends WebTestConfig {
 	@Test
 	public void memDelete() throws Exception {
 		mockMvc.perform(get("/member/memDelete")
-				.param("userid", "z"))
-		.andExpect(view().name("redirect:member/memberList"));
+				.param("userid", "bani"))
+		.andExpect(view().name("redirect:/member/memberList"));
 	}
 	
 }

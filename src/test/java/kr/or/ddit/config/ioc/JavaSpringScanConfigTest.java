@@ -9,14 +9,13 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import kr.or.ddit.WebTestConfig;
 import kr.or.ddit.board.model.BoardVO;
 import kr.or.ddit.board.repository.BoardRepositoryI;
 import kr.or.ddit.board.service.BoardServiceI;
 @RunWith(SpringJUnit4ClassRunner.class)
-//설정파일이 java일때 
-@ContextConfiguration(classes = {javaSpringScanConfig.class} )
 
-public class JavaSpringScanConfigTest {
+public class JavaSpringScanConfigTest extends WebTestConfig{
 
 	@Resource(name = "boardRepository")
 	private BoardRepositoryI boardRepository;
