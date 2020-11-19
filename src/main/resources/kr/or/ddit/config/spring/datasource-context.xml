@@ -10,7 +10,7 @@
 		2.SqlSessionFactoryBean : datasource를 이용하여 mybatis 설정을 담당
 		3.SqlSessionTemplate : sqlSessionFactory 객체로 부터 mybatis를 통해 sql을 실핼할 수 있는 객체(sqlSession)
 	-->
-	<context:property-placeholder location="classpath:kr/or/ddit/config/db/db.properties"/>
+	<context:property-placeholder location="classpath:kr/or/ddit/db/db.properties"/>
 	
 	<!-- 1 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" >
@@ -27,7 +27,7 @@
 		인터페이스에 정의되어있는 getObject()메소드가 리턴하는 객체를 스프링 빈으로 등록한다. 
 	-->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="configLocation" value="classpath:kr/or/ddit/config/db/mybatis-config22.xml"/>
+		<property name="configLocation" value="classpath:kr/or/ddit/db/mybatis-config22.xml"/>
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	<!-- 3 -->

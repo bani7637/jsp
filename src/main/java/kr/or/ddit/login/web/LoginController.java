@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -91,6 +92,14 @@ public class LoginController {
 			return "login/view";
 		}
 	}
+	
+	@RequestMapping(path = "/chating", method = RequestMethod.POST)
+	public String loginProcess(@RequestParam String mem_id, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.setAttribute("id", mem_id);
+		return "chat";
+	}
+	
 	
 	//localhost/login/unt/h
 	@RequestMapping("/unt/{unt_cd}")
