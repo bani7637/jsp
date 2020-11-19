@@ -29,12 +29,7 @@
 	<bean id="jsonView"
 		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
 
-	<websocket:handlers>
-		<websocket:mapping handler="echoHandler" path="/echo" />
-		<websocket:sockjs/>
-	</websocket:handlers>
 	
-	<bean id="echoHandler" class="kr.or.ddit.chat.echoHandler"/>
 
 	<bean
 		class="org.springframework.web.servlet.view.BeanNameViewResolver">
